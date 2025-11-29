@@ -1,9 +1,10 @@
-pandas
-numpy
-scikit-learn
-xgboost
 fastapi
 uvicorn
-streamlit
-pydantic
+jinja2
+numpy
+pandas
+scikit-learn
+xgboost
 python-multipart
+gunicorn
+pydantic
