@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Telecom Churn Prediction</title>
+
+    <link rel="stylesheet" href="/static/style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="title">Telecom Customer Churn Prediction</h1><br>
+        <p class="subtitle">Fill the details below & click Predict</p><br>
+
+
+        <form action="/predict" method="post" class="form-card">
+
+            <!-- Gender -->
+            <label>Gender</label>
+            <select name="Gender" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+
+            <!-- Senior Citizen -->
+            <label>Senior Citizen</label>
+            <select name="SeniorCitizen" required>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+
+            <!-- Partner -->
+            <label>Partner</label>
+            <select name="Partner" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+
+            <!-- Dependents -->
+            <label>Dependents</label>
+            <select name="Dependents" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+
+            <!-- Tenure -->
+            <label>Tenure (Months)</label>
+            <input type="number" name="tenure" min="0" max="100" required />
+
+            <!-- Phone Service -->
+            <label>Phone Service</label>
+            <select name="PhoneService" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+
+            <!-- Multiple Lines -->
+            <label>Multiple Lines</label>
+            <select name="MultipleLines" required>
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+                <option value="No phone service">No phone service</option>
+            </select>
+
+            <!-- Internet Service -->
+            <label>Internet Service</label>
+            <select name="InternetService" required>
+                <option value="DSL">DSL</option>
+                <option value="Fiber optic">Fiber Optic</option>
+                <option value="No">No</option>
+            </select>
+
+            <!-- Contract -->
+            <label>Contract</label>
+            <select name="Contract" required>
+                <option value="Month-to-month">Month-to-month</option>
+                <option value="One year">One Year</option>
+                <option value="Two year">Two Year</option>
+            </select>
+
+            <!-- Payment Method -->
+            <label>Payment Method</label>
+            <select name="PaymentMethod" required>
+                <option value="Electronic check">Electronic Check</option>
+                <option value="Mailed check">Mailed Check</option>
+                <option value="Bank transfer (automatic)">Bank Transfer</option>
+                <option value="Credit card (automatic)">Credit Card</option>
+            </select>
+
+            <!-- Monthly Charges -->
+            <label>Monthly Charges</label>
+            <input type="number" name="MonthlyCharges" step="0.1" required />
+
+            <!-- Total Charges -->
+            <label>Total Charges</label>
+            <input type="number" name="TotalCharges" step="0.1" required />
+
+            <button type="submit" class="btn">Predict</button>
+        </form>
+
+        {% if result %}
+        <div class="result-box">
+            <h2>Prediction: {{ result }}</h2>
+        </div>
+        {% endif %}
+        <br><p class="subtitle">note: predictions may not always be accurate</p><br>
+    </div>
+    
+</body>
+</html>
